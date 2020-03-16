@@ -5,17 +5,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat './mvnw clean' 
+                sh './mvnw clean' 
             }
         }
         stage('Test') {
             steps {
-                bat './mvnw test' 
+                sh './mvnw test' 
             }
         }
         stage('Package') {
             steps {
-                bat './mvnw package' 
+                sh './mvnw package' 
             }
         }
         //only run this stage if we are in the master branches
@@ -24,7 +24,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                bat './mvnw deploy' 
+                sh './mvnw deploy' 
             }
         }
         
