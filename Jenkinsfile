@@ -18,7 +18,7 @@ pipeline {
                 bat './mvnw package' 
             }
         }
-        //only run this stage if we are in the master branch
+        //only run this stage if we are in the master branches
         stage('Deploy') {
             when {
                 branch 'master'
@@ -27,6 +27,7 @@ pipeline {
                 bat './mvnw deploy' 
             }
         }
+        
     }
     // post {
     //     success {
